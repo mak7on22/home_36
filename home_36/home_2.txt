@@ -1,0 +1,14 @@
+SELECT 
+    p.product AS product_name,
+    s.supplier AS supplier_name,
+    a.action_date
+FROM
+    actions a
+JOIN
+    products p ON a.product_id = p.id
+JOIN
+    suppliers s ON a.supplier_id = s.id
+WHERE
+    EXTRACT(YEAR_MONTH FROM a.action_date) = 201601
+ORDER BY
+    a.action_date DESC;

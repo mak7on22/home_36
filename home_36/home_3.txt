@@ -1,0 +1,8 @@
+SELECT DISTINCT
+    p.product AS product_name
+FROM
+    actions a
+        JOIN
+    products p ON a.product_id = p.id
+WHERE
+    EXTRACT(YEAR FROM a.action_date) = 2017;
